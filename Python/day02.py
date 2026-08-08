@@ -54,6 +54,7 @@ total = ['item_one', 'item_two', 'item_three',
 
 
 
+        
  #字符串
 str='123456789'
  
