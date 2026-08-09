@@ -78,11 +78,22 @@ a, b = 0, 1
 for _ in range(20):
     a, b = b, a + b
     print(a)
-'''
+#下面这种好理解
+tmp = a + b
+a = b
+b = tmp
 
-a,b=0,1
-for _ in range(20):
-    temp=a+b
-    a=b
-    b=temp
-    print(a)
+
+for num in range(2, 100):
+    # 假设num是素数
+    is_prime = True
+    # 在2到num-1之间找num的因子
+    for factor in range(2, num):
+        # 如果找到了num的因子，num就不是素数
+        if num % factor == 0:
+            is_prime = False
+            break
+    # 如果布尔值为True在num是素数
+    if is_prime:
+        print(num)
+'''
