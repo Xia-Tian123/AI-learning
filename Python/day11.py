@@ -123,6 +123,23 @@ printinfo(1, a=2,b=3)
 def f(a,b,*,c):
     return a+b+c
 
+`*args`并不能处理带参数名的参数
+def calc(*args, **kwargs):
+    result = 0
+    for arg in args:
+        if type(arg) in (int, float):
+            result += arg
+    for value in kwargs.values():
+        if type(value) in (int, float):
+            result += value
+    return result
+
+
+print(calc())                  # 0
+print(calc(1, 2, 3))           # 6
+print(calc(a=1, b=2, c=3))     # 6
+print(calc(1, 2, c=3, d=4))    # 10
+
 4.匿名函数
 Python 使用 lambda 来创建匿名函数。
 # 可写函数说明
