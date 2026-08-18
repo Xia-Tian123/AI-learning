@@ -177,11 +177,3 @@ print(product)  # 输出：120
 
 > **提示2**：上面使用的`all`函数是Python内置函数，如果传入的序列中所有布尔值都是`True`，`all`函数就返回`True`，否则`all`函数就返回`False`。
 '''
-from functools import reduce
- 
-numbers = [1, 2, 3, 4, 5]
- 
-# 使用 reduce() 和 lambda 函数计算乘积
-product = reduce(lambda x, y: x * y, numbers)
- 
-print(product)  # 输出：120
