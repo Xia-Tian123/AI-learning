@@ -1,0 +1,16 @@
+# Visual Studio »º´æ
+.vs/
+*.suo
+*.user
+*.vcxproj.user
+
+# CopilotË÷Òı
+CopilotIndices/
+
+# ±àÒëÊä³ö
+x64/
+Debug/
+Release/
+*.obj
+*.exe
+*.pdb
