@@ -198,7 +198,54 @@ public:
 };*/
 
 
+/* 在排序数组中查找元素的第一个和最后一个位置
+class Solution {
+public:
+	vector<int> searchRange(vector<int>& nums, int target) {
+		int LeftBorder = getLeftBorder(nums, target);
+		int RightBorder = getRightBorder(nums, target);
+		if (LeftBorder == -2 || RightBorder == -2) return { -1,-1 };
+		if (RightBorder - LeftBorder > 1) return { LeftBorder + 1,RightBorder - 1 };
+		return { -1,-1 };
+	}
+private:
+	int getRightBorder(vector<int>& nums, int target) {
+		int left = 0;
+		int n = nums.size();
+		int right = n - 1;
+		int RightBorder = -2;
+		while (left <= right) {
+			int middle = left + ((right - left) / 2);
+			if (nums[middle] > target) {
+				right = middle - 1;
+			}
+			else {
+				left = middle + 1;
+				RightBorder = left;
+			}
+		}
+		return RightBorder;
+	}
 
+	int getLeftBorder(vector<int>& nums, int target) {
+		int left = 0;
+		int n = nums.size();
+		int right = n - 1;
+		int LeftBorder = -2;
+		while (left <= right) {
+			int middle = left + ((right - left) / 2);
+			if (nums[middle] >= target) {
+				right = middle - 1;
+				LeftBorder = right;
+			}
+			else {
+				left = middle + 1;
+			}
+		}
+		return LeftBorder;
+	}
+};
+*/
 
 
 

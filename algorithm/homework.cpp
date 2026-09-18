@@ -82,3 +82,91 @@ int main() {
 }
 
 */
+
+/*7-1 冰雹猜想
+冰雹猜想的内容是：任何一个大于1的整数n，按照n为偶数则除等2，n为奇数则乘3后再加1的规则不断变化，最终都可以变化为1。
+
+例如，n等于20，变化过程为：20、10、5、16、8、4、2、1。编写程序，用户输入n，输出变化过程以及变化的次数。
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long n;
+    cin >> n;
+
+    int count = 1;
+    cout << n;
+
+    while (n != 1) {
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
+            n = n * 3 + 1;
+        }
+        cout << " " << n;
+        count++;
+    }
+
+    cout << "\ncount = " << count << endl;
+    return 0;
+}*/
+
+
+/*7-2 顺序表区间数据求和
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+	int n,x,y;
+	cin >> n;
+	vector <int> sums(n);
+	for (int i = 0; i < n; i++) {
+		cin>>sums[i];
+	}
+	cin >> x >> y;
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		if (sums[i] <= y && sums[i] >= x) {
+			count += sums[i];
+		}
+	}
+	cout << count;
+	return 0;
+}*/
+
+/*
+7-3 一元多项式求导
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+
+	bool flag = false;  // 记录是否有输出过非零项
+
+	for (int i = 0; i < n; i++) {
+		int c, e;
+		cin >> c >> e;
+
+		if (e != 0) {                     // 常数项求导为0，跳过
+			cout << c * e << " " << e - 1 << " ";
+			flag = true;
+		}
+	}
+
+	if (!flag) {                          // 一项都没输出，说明是零多项式
+		cout << "0 0 ";
+	}
+
+	return 0;
+}*/
+
+
+
+
+
+
+
+
