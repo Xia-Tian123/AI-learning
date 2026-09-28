@@ -163,6 +163,241 @@ int main() {
 	return 0;
 }*/
 
+#include <iostream>
+
+/*
+1.顺序队列的3个操作
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+
+	int *queue = new int[n];
+	int front = 0, rear = 0, count = 0;   // count 记录当前队列元素个数
+
+	// 尝试将 n+1 个整数顺序压入容量为 n 的队列
+	for (int i = 0; i < n + 1; i++) {
+		int x;
+		cin >> x;
+		if (count == n) {
+			// 队列已满，入队操作不执行
+			cout << "错误：队列已满。" << endl;
+		} else {
+			queue[rear] = x;
+			rear = (rear + 1) % n;
+			count++;
+		}
+	}
+
+	// 执行 n+1 次取队首并出队操作
+	for (int i = 0; i < n + 1; i++) {
+		if (count == 0) {
+			// 队列为空：取队首和出队都不执行
+			cout << "错误：队列为空。" << endl;
+			cout << -1 << endl;               // 空队列取队首返回 -1
+			cout << "错误：队列为空。" << endl;
+		} else {
+			// 非空：取队首并出队，输出元素值
+			cout << queue[front] << endl;
+			front = (front + 1) % n;
+			count--;
+		}
+	}
+
+	delete[] queue;
+	return 0;
+}
+	
+
+
+
+
+
+
+
+
+2.出栈序列
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string in_seq, out_seq;
+	cin >> in_seq >> out_seq;
+
+	stack<char> st;
+	string op;   //保存操作序列 P/O
+	int i = 0;   //入栈指针
+	int j = 0;   //出栈指针
+
+	int n = in_seq.size();
+	while (i < n)
+	{
+		//入栈
+		st.push(in_seq[i]);
+		op += 'P';
+		i++;
+
+		//只要栈顶等于目标出栈元素，持续出栈
+		while (!st.empty() && st.top() == out_seq[j])
+		{
+			st.pop();
+			op += 'O';
+			j++;
+		}
+	}
+
+	if (j == out_seq.size())
+	{
+		cout << "right\n";
+		cout << op << "\n";
+	}
+	else
+	{
+		cout << "wrong\n";
+		// stack只能取栈顶；要栈底到栈顶，需要辅助vector
+		string remain;
+		while (!st.empty())
+		{
+			remain = st.top() + remain;
+			st.pop();
+		}
+		cout << remain << "\n";
+	}
+	return 0;
+}
+	
+
+
+3.中缀表达式转后缀表达式
+#include <iostream>
+#include <stack>
+#include <string>
+#include <cctype>
+using namespace std;
+
+// 返回运算符优先级
+int priority(char op) {
+	if (op == '*' || op == '/') return 2;
+	if (op == '+' || op == '-') return 1;
+	return 0;  // '(' 的优先级最低，但不会参与比较
+}
+
+int main() {
+	string s;
+	cin >> s;
+
+	stack<char> op;      // 运算符栈
+	string output;       // 后缀表达式结果
+	int i = 0;
+
+	while (i < s.size()) {
+		char c = s[i];
+
+		if (isdigit(c)) {
+			// 提取完整的多位数字
+			string num;
+			while (i < s.size() && isdigit(s[i])) {
+				num += s[i];
+				i++;
+			}
+			output += num + " ";
+		} else if (c == '(') {
+			op.push(c);
+			i++;
+		} else if (c == ')') {
+			// 弹出运算符直到遇到左括号
+			while (!op.empty() && op.top() != '(') {
+				output += op.top();
+				output += " ";
+				op.pop();
+			}
+			if (!op.empty()) op.pop();  // 弹出左括号，不输出
+			i++;
+		} else {
+			// 当前字符是运算符 + - * /
+			while (!op.empty() && op.top() != '(' && priority(op.top()) >= priority(c)) {
+				output += op.top();
+				output += " ";
+				op.pop();
+			}
+			op.push(c);
+			i++;
+		}
+	}
+
+	// 弹出栈中剩余的所有运算符
+	while (!op.empty()) {
+		output += op.top();
+		output += " ";
+		op.pop();
+	}
+
+	cout << output << endl;
+	return 0;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
